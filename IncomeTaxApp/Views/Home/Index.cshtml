@@ -1,0 +1,21 @@
+﻿@{
+    @model TaxCalculationRequest
+    ViewData["Title"] = "Income Tax Calculator";
+}
+<div class="text-center">
+    <h1 class="display-4">Income Tax Calculator</h1>
+    <p>Please enter postal code and annual income below then click the <b>SUBMIT</b> button.</p>
+</div>
+
+@using (Html.BeginForm("CalculateAndSave", "Home"))
+{
+<div class="editor">
+    @Html.LabelFor(m => m.PostalCode, "Postal Code")
+    @Html.TextBoxFor(m => m.PostalCode, new { @required  = "required"})
+
+    @Html.LabelFor(m => m.Income, "Annual Income")
+    @Html.TextBoxFor(m => m.Income, new { @required  = "required"})
+
+    <input type="submit" asp-action="Calculate" asp-controller="Home" value="SUBMIT" />
+</div>
+}

@@ -1,0 +1,29 @@
+﻿@model IncomeTaxApp.Models.TaxCalculationRequest
+
+@{
+    ViewData["Title"] = "Calculate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h1 class="display-4">Tax Calculation Results</h1>
+</div>
+
+
+
+<hr />
+
+        <div class="resultEditor">
+            @Html.LabelFor(m => m.PostalCode, "Postal Code", new { @class="label"}) | <label>@Html.DisplayFor(model => model.PostalCode, new { @class="label"})</label>
+            <br />
+            @Html.LabelFor(m => m.Income, "Annual Income", new { @class="label"}) | <label>@Html.DisplayFor(model => model.Income, new { @class="label"})</label>
+            <br />
+            @Html.LabelFor(m => m.TaxAmount, "Tax Amount", new { @class="label"}) | <label>@Html.DisplayFor(model => model.TaxAmount, new { @class="label"})</label>
+            <br />
+        </div>
+<div>
+    <a asp-action="Index">Return to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
